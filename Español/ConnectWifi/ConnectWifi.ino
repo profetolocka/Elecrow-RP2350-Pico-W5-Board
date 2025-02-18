@@ -13,7 +13,7 @@
 #define SET_WIFI_MODE  "AT+WMODE=1,1"
 // Define el comando para conectar
 // Reemplaza SSID y PASSW por el nombre de tu red y tu contraseña 
-#define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"LosToloNetwork-5G\",\"performance15\""
+#define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"SSID\",\"PASSW\""
 
 // Espera a que no haya nada en los buffers
 void clearSerial() {
