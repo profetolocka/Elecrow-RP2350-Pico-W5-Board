@@ -1,30 +1,36 @@
-// Define pines de TX y RX para Serial2
+/* 
+   Author: Ernesto Tolocka (Profe Tolocka)
+   Creation Date: Feb-18-2025
+   Description: Publishes to an MQTT server
+   License: MIT
+*/
+
+// Define TX and RX pins for Serial2
 #define Serial2_RX 5
 #define Serial2_TX 4
 
-// Define el comando para el modo de trabajo AP+STA
+// Define the command for AP+STA mode
 #define SET_WIFI_MODE  "AT+WMODE=1,1"
 
-// Define el comando para conectar
-// Reemplaza SSID y PASSW por el nombre de tu red y tu contraseña 
+// Define the command to connect
+// Replace SSID and PASSW with your network name and password
 #define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"LosToloNetwork\",\"performance15\""
 
-// Define comandos para MQTT
-// Dirección del brokrer
+// Define MQTT commands
+// Broker address
 #define SET_MQTT_URL "AT+MQTT=1,broker.emqx.io"
-// Número de puerto
+// Port number
 #define SET_MQTT_PORT "AT+MQTT=2,1883"
-// Método de conexión
+// Connection method
 #define SET_MQTT_METHOD  "AT+MQTT=3,1"
-// Identificador del cliente (Client ID)
-#define SET_MQTT_CLIENT_ID  "AT+MQTT=4,MiPicoW5"
-// Conexión
+// Client ID
+#define SET_MQTT_CLIENT_ID  "AT+MQTT=4,MyPicoW5"
+// Connect command
 #define SET_MQTT_CONNECT  "AT+MQTT"
-// Publicación
-#define PUB_MQTT  "AT+MQTTPUB=PicoW5,0,0,Hola"
+// Publish command
+#define PUB_MQTT  "AT+MQTTPUB=PicoW5,0,0,Hello"
 
-
-// Envía un comando AT con timeout
+// Sends an AT command with a timeout
 int sendATCommand(String command, int timeout) {
     Serial.flush();
     Serial2.println(command);
@@ -33,48 +39,47 @@ int sendATCommand(String command, int timeout) {
         if (Serial2.available()) {
             String response = Serial2.readString();
             if (response.indexOf("OK") != -1) {
-                return 0; // Respuesta OK recibida
+                return 0; // OK response received
             }
         }
     }
-    return 1; // Timeout o respuesta incorrecta
+    return 1; // Timeout or incorrect response
 }
 
 void setup() {
 
-  // Inicializa los puertos serie
+  // Initialize serial ports
   Serial.begin(9600);
-  // Establece pines TX y RX
+  // Set TX and RX pins
   Serial2.setRX(Serial2_RX);
   Serial2.setTX(Serial2_TX);
   Serial2.begin(115200);
   delay(5000);
 
+  if (!sendATCommand (SET_WIFI_MODE,5)) {   // Set mode
+    Serial.println ("Mode OK");
 
-  if (!sendATCommand (SET_WIFI_MODE,5)) {   // Fija modo
-    Serial.println ("Modo OK");
+    if (!sendATCommand (SET_WIFI_SSID_PASSWORD,10)) {  // Connect
+      Serial.println ("WiFi connected");
 
-    if (!sendATCommand (SET_WIFI_SSID_PASSWORD,10)) {  // Conecta
-      Serial.println ("Wifi conectado");
-
-       // Conectar al servidor MQTT
+      // Connect to MQTT server
       sendATCommand (SET_MQTT_URL,5);
       sendATCommand (SET_MQTT_PORT,5);
       sendATCommand (SET_MQTT_METHOD,5);
       sendATCommand (SET_MQTT_CLIENT_ID,5);
       
-      // Conectar
+      // Connect
       Serial2.println (SET_MQTT_CONNECT);
-      // Esperar la respuesta
+      // Wait for response
       while (!Serial2.available());
       Serial.println(Serial2.readString());
             
     } else {
-      Serial.println ("Error al conectar!");
+      Serial.println ("Connection error!");
     }
 
   } else {
-    Serial.println ("Modo Error!");
+    Serial.println ("Mode error!");
   }
 
 }
@@ -82,9 +87,9 @@ void setup() {
 void loop() {
 // Main code to run repeatedly
  
-  //Publicar en topico 
+  // Publish to topic 
   Serial2.println (PUB_MQTT);
-  // Esperar la respuesta
+  // Wait for response
   while (!Serial2.available());
   Serial.println(Serial2.readString());
 
