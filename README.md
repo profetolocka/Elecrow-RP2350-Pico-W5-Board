@@ -1,4 +1,4 @@
-[Go to english version](#XIAO-Projects)
+[Go to english version](#RP2350-Pico-5W-Projects)
 
 # Proyectos con RP2350 Pico 5W
 
