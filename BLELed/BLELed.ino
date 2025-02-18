@@ -1,6 +1,6 @@
 // Controla el led incorporado a través de BT. Datos válidos:
-// "ON" = Prende el led
-// "OFF" = Apaga el led
+// "LED=ON" = Prende el led
+// "LED=OFF" = Apaga el led
 
 // Define pines de TX y RX para Serial2
 #define Serial2_RX 5
@@ -43,10 +43,10 @@ void setup() {
   sendATCommand ("AT+BLEMODE=9",10);
 
   // Configurar nombre del dispositivo
-  sendATCommand ("AT+BLENAME=ProfeTolocka",10);  //Debe estar OFF si o si
+  sendATCommand ("AT+BLENAME=ProfeTolocka",10);  //Sólo en OFF
   
-  // UUID?
-  //sendATCommand ("AT+BLESERUUID=495353431e4d4bd9ba6123c647249616",10); //Debe estar OFF
+  // UUID
+  sendATCommand ("AT+BLESERUUID=495353431e4d4bd9ba6123c647249616",10); //Sólo en OFF
 
   // Activar BT en modo SLAVE
   sendATCommand ("AT+BLEMODE=0",10); 
@@ -67,12 +67,12 @@ void loop() {
         Serial.println(data);
         //Serial.println (strlen(data));
         if (data.indexOf("LED=ON") != -1) {          
-          Serial.println ("Prende");
+          Serial.println ("Prende LED");
             digitalWrite (LED_BUILTIN, HIGH);
 
         }
         if (data.indexOf("LED=OFF") != -1) {          
-          Serial.println ("Apaga");
+          Serial.println ("Apaga LED");
             digitalWrite (LED_BUILTIN, LOW);
 
         }
