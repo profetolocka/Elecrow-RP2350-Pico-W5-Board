@@ -14,7 +14,7 @@
 
 // Define the command to connect
 // Replace SSID and PASSW with your network name and password
-#define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"LosToloNetwork\",\"performance15\""
+#define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"SSID\",\"PASSW\""
 
 // Define MQTT commands
 // Broker address
