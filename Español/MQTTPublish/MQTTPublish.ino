@@ -13,7 +13,7 @@
 
 // Define el comando para conectar
 // Reemplaza SSID y PASSW por el nombre de tu red y tu contraseña 
-#define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"LosToloNetwork\",\"performance15\""
+#define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"SSID\",\"PASSW\""
 
 // Define comandos para MQTT
 // Dirección del brokrer
