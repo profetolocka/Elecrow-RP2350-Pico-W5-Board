@@ -13,7 +13,7 @@
 #define SET_WIFI_MODE           "AT+WMODE=3,1"
 // Define el comando para conectar
 // Reemplaza SSID y PASSW por el nombre de tu red y tu contraseña 
-#define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"LosToloNetwork\",\"performance15\""
+#define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"SSID\",\"PASSW\""
 // Define el comando para hacer la solicitud HTTP con el formato requerido por la API
 #define GET_HTTP_REQ  "AT+HTTPCLIENTLINE=1,2,\"application/x-www-form-urlencoded\",\"api.open-meteo.com\",80,\"/v1/forecast?latitude=-31.137&longitude=-64.296&current=temperature_2m\""
 
