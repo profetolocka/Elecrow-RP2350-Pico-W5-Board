@@ -1,6 +1,11 @@
-// Controla el led incorporado a través de BT. Datos válidos:
-// "LED=ON" = Prende el led
-// "LED=OFF" = Apaga el led
+/* Autor: Ernesto Tolocka (profe Tolocka)
+   Fecha creación: 28-2-2025
+   Descripción: Controla el led incorporado a través de BT:
+     "LED=ON" = Prende el led
+    "LED=OFF" = Apaga el led
+   Licencia: MIT
+*/
+
 
 // Define pines de TX y RX para Serial2
 #define Serial2_RX 5
