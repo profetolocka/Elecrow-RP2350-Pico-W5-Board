@@ -10,16 +10,19 @@ Si eres un estudiante, hobbysta o maker, espero que estos proyectos te sirvan pa
 
 ## RP2350 Pico 5W
 
-Las placas XIAO de la empresa Seeed Studio integran una familia de microcontroladores compactos, potentes y versátiles, diseñados para proyectos de IoT, machine learning y electrónica en general.
-Con un tamaño ultra reducido (sólo 20 x 17,5 cm) y basados en plataformas de hardware populares como ESP32, RA4M1, Raspberry, nRF52840 y SAMD21, estos microcontroladores son una excelente opción para desarrollar soluciones avanzadas y experimentar con Tiny Machine Learning (TinyML).
+La Pico 5W de Elecrow es compatible con la Pico2 de Raspberry, pero además tiene características distintivas:
+- 8 MB de Flash
+- Botón RESET
+- Conector USB-C
+- Conectividad Wifi en las bandas de 2.4 GHz y 5.8 GHz.
 
-Las placas XIAO (un prefijo del idioma chino que se traduce como “pequeño”) encierran una enorme capacidad y flexibilidad en un tamaño compacto.
+También incluye Bluetooth LE en Bluetooth 5.0, lo que la convierte en una opción a tener en cuenta para proyectos de Internet de las cosas (IoT) y muchas otras aplicaciones.
 
 ![Pico 5W](/images/ElecrowPico5W.png)
 
 ## Contenido
 
-El repositorio está organizado en dos carpetas, **Español** y **English** organizando el contenido en esos dos idiomas. Dentro de ellas se encuentran subcarpetas, cada una de las cuales contiene un proyecto o ejemplo diferente, con su correspondiente archivo README explicativo. El nombre de la carpeta indica la placa utilizada, los módulos o expansiones empleados (si los hubiere) y el lenguaje de programación usado (MPY=Micropython, CPY=CircuitPython, ARD=Arduino).
+El repositorio está organizado en dos carpetas, **Español** y **English** organizando el contenido en esos dos idiomas. Dentro de ellas se encuentran subcarpetas, cada una de las cuales contiene un proyecto o ejemplo diferente, con su correspondiente archivo README explicativo. 
 
 ## Licencia
 
@@ -38,30 +41,35 @@ Puedes contactarme y ver el resto de mi trabajo en:
 
 ## Introduction
 
-This repository aims to showcase the projects I have developed using various boards from the XIAO family by Seeed Studio. It is a collection of projects created over time and includes test programs, utilities, and specific projects, ranging from simple and straightforward applications to more complex ones.
+This repository aims to showcase various projects and test programs for the **RP2350 Pico 5W** board from **Elecrow**.
 
-If you are a student, hobbyist, or maker, I hope these projects will help you learn how to use and program XIAO boards so you can create your own designs.
+If you're a student, hobbyist, or maker, I hope these projects help you learn how to use and program this board so you can create your own designs.
 
-## XIAO
+## RP2350 Pico 5W
 
-The XIAO boards from Seeed Studio represent a family of compact, powerful, and versatile microcontrollers designed for IoT projects, machine learning, and general electronics.  
-With an ultra-small size (only 20 x 17.5 mm) and based on popular hardware platforms such as ESP32, RA4M1, Raspberry, nRF52840, and SAMD21, these microcontrollers are an excellent choice for developing advanced solutions and experimenting with Tiny Machine Learning (TinyML).
+The **Elecrow Pico 5W** is **compatible with the Raspberry Pico 2**, but it also features some **unique characteristics**:
 
-The XIAO boards (a prefix in Chinese that translates to “small”) pack immense capability and flexibility into a compact size.
+- 8 MB of Flash
+- RESET button
+- USB-C connector
+- WiFi connectivity on **2.4 GHz and 5.8 GHz bands**
 
-[![Alt text](https://img.youtube.com/vi/A_XUi8tlKWk/0.jpg)](https://www.youtube.com/watch?v=A_XUi8tlKWk)
+It also includes **Bluetooth LE** with **Bluetooth 5.0**, making it an excellent choice for **Internet of Things (IoT) projects** and many other applications.
+
+![Pico 5W](/images/ElecrowPico5W.png)
 
 ## Content
 
-The repository is organized into two folders, **Español** and **English**, categorizing the content by these two languages. Within them, there are subfolders, each containing a different project or example with its corresponding README file. The folder name indicates the board used, the modules or expansions employed (if any), and the programming language used (MPY=Micropython, CPY=CircuitPython, ARD=Arduino).
+The repository is organized into two folders: **Español** and **English**, structuring the content in both languages.  
+Within each, you will find subfolders, each containing a different project or example, along with its corresponding **README** file for explanations.
 
 ## License
 
-All projects are **open source** (open source and open hardware) and are published under an **MIT** license.
+All projects are **open source** (both open software and open hardware) and are published under the **MIT license**.
 
 ## Contact
 
-You can contact me and see the rest of my work at:
+You can contact me and explore more of my work at:
 
 - Github: [@profetolocka](https://github.com/profetolocka)
 - Blog: [Profe Tolocka](https://www.profetolocka.com.ar)
