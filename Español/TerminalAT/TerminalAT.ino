@@ -1,5 +1,5 @@
 /* Autor: Ernesto Tolocka (profe Tolocka)
-   Fecha creación: 28-2-2025
+   Fecha creación: 18-2-2025
    Descripción: Envía y recibe comandos AT a y desde el BW16.
    Licencia: MIT
 */

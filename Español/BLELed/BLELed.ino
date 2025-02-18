@@ -1,5 +1,5 @@
 /* Autor: Ernesto Tolocka (profe Tolocka)
-   Fecha creación: 28-2-2025
+   Fecha creación: 18-2-2025
    Descripción: Controla el led incorporado a través de BT:
      "LED=ON" = Prende el led
     "LED=OFF" = Apaga el led

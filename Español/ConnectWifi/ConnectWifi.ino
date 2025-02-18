@@ -1,3 +1,9 @@
+/* Autor: Ernesto Tolocka (profe Tolocka)
+   Fecha creación: 18-2-2025
+   Descripción: Conecta a una red Wifi
+   Licencia: MIT
+*/
+
 // Define pines de TX y RX para Serial2
 #define Serial2_RX 5
 #define Serial2_TX 4
