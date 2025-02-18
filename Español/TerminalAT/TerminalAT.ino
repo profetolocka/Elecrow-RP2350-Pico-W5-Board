@@ -1,3 +1,9 @@
+/* Autor: Ernesto Tolocka (profe Tolocka)
+   Fecha creación: 28-12-2024
+   Descripción: Envía y recibe comandos AT a y desde el BW16.
+   License: MIT
+*/
+
 // Define los pines RX y TX del segundo puerto serie
 #define Serial2_RX 5  // RX
 #define Serial2_TX 4  // TX
