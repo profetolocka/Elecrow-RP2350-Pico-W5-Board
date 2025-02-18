@@ -1,28 +1,35 @@
-// Define los pines RX y TX del segundo puerto serie
+/* 
+   Author: Ernesto Tolocka (Profe Tolocka)
+   Creation Date: Feb-18-2025
+   Description: Sends and receives AT commands to and from the BW16.
+   License: MIT
+*/
+
+// Define the RX and TX pins for the second serial port
 #define Serial2_RX 5  // RX
 #define Serial2_TX 4  // TX
 
 void setup() {
 
-  Serial2.setRX(Serial2_RX);  // Pin RX del segundo puerto
-  Serial2.setTX(Serial2_TX);  // Pin TX del segundo puerto
-  Serial2.begin(115200);     // Inicializar segundo puerto a 115200
- 
-  Serial.begin(115200);      // Inicializa puerto principal a 115200
+  Serial2.setRX(Serial2_RX);  // RX pin for the second port
+  Serial2.setTX(Serial2_TX);  // TX pin for the second port
+  Serial2.begin(115200);     // Initialize second port at 115200
+  
+  Serial.begin(115200);      // Initialize main port at 115200
 
 }
 
 void loop() {
  
-  char dato;
-  if (Serial2.available()) {           //Llega algo del módulo?
-    dato=Serial2.read();                //Leer lo que llegó
-    Serial.write(dato);                 //Sacarlo al monitor
+  char data;
+  if (Serial2.available()) {           // Did something arrive from the module?
+    data=Serial2.read();                // Read the incoming data
+    Serial.write(data);                 // Send it to the monitor
   }
 
-  if (Serial.available ()) {           //Llega algo del monitor?
-    dato=Serial.read();                 //Leer lo que llegó
-    Serial2.write(dato);                //Sacarlo al módulo
+  if (Serial.available ()) {           // Did something arrive from the monitor?
+    data=Serial.read();                 // Read the incoming data
+    Serial2.write(data);                // Send it to the module
   }       
 
 }
