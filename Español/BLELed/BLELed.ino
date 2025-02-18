@@ -13,7 +13,6 @@
 
 // Envía un comando AT con timeout
 int sendATCommand(String command, int timeout) {
-    //clearSerial();
     Serial2.println(command);
     long startTime = millis();
     while (millis() - startTime < timeout * 1000) {
@@ -70,7 +69,6 @@ void loop() {
         String data = Serial2.readString();
         Serial.print("Recibido via BT: ");
         Serial.println(data);
-        //Serial.println (strlen(data));
         if (data.indexOf("LED=ON") != -1) {          
           Serial.println ("Prende LED");
             digitalWrite (LED_BUILTIN, HIGH);
