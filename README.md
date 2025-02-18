@@ -15,7 +15,7 @@ Con un tamaño ultra reducido (sólo 20 x 17,5 cm) y basados en plataformas de h
 
 Las placas XIAO (un prefijo del idioma chino que se traduce como “pequeño”) encierran una enorme capacidad y flexibilidad en un tamaño compacto.
 
-[![Pico 5W](/images/ElecrowPico5W.png)]
+![Pico 5W](/images/ElecrowPico5W.png)
 
 ## Contenido
 
