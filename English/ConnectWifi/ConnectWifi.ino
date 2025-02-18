@@ -1,21 +1,27 @@
-// Define pines de TX y RX para Serial2
+/* 
+   Author: Ernesto Tolocka (Profe Tolocka)
+   Creation Date: Feb-18-2025
+   Description: Connects to a WiFi network
+   License: MIT
+*/
+
+// Define TX and RX pins for Serial2
 #define Serial2_RX 5
 #define Serial2_TX 4
 
-
-// Define el comando para el modo de trabajo STA
+// Define the command for STA mode
 #define SET_WIFI_MODE  "AT+WMODE=1,1"
-// Define el comando para conectar
-// Reemplaza SSID y PASSW por el nombre de tu red y tu contraseña 
-#define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"LosToloNetwork-5G\",\"performance15\""
+// Define the command to connect
+// Replace SSID and PASSW with your network name and password
+#define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"SSID\",\"PASSW\""
 
-// Espera a que no haya nada en los buffers
+// Wait until buffers are empty
 void clearSerial() {
   while (Serial2.read() >= 0);
   while (Serial.read() >= 0);
 }
 
-// Envía un comando AT con timeout
+// Send an AT command with a timeout
 int sendATCommand(String command, int timeout) {
     clearSerial();
     Serial2.println(command);
@@ -24,37 +30,35 @@ int sendATCommand(String command, int timeout) {
         if (Serial2.available()) {
             String response = Serial2.readString();
             if (response.indexOf("OK") != -1) {
-                return 0; // Respuesta OK recibida
+                return 0; // OK response received
             }
         }
     }
-    return 1; // Timeout o respuesta incorrecta
+    return 1; // Timeout or incorrect response
 }
 
 void setup() {
 
-  // Inicializa los puertos serie
+  // Initialize serial ports
   Serial.begin(115200);
-  // Establece pines TX y RX
+  // Set TX and RX pins
   Serial2.setRX(Serial2_RX);
   Serial2.setTX(Serial2_TX);
   Serial2.begin(115200);
   delay(5000);
 
+  if (!sendATCommand (SET_WIFI_MODE,5)) {   // Set mode
+    Serial.println ("Mode OK");
 
-  if (!sendATCommand (SET_WIFI_MODE,5)) {   // Fija modo
-    Serial.println ("Modo OK");
-
-    if (!sendATCommand (SET_WIFI_SSID_PASSWORD,10)) {  // Conecta
-      Serial.println ("Wifi conectado");
+    if (!sendATCommand (SET_WIFI_SSID_PASSWORD,10)) {  // Connect
+      Serial.println ("WiFi connected");
     } else {
-      Serial.println ("Error al conectar!");
+      Serial.println ("Connection error!");
     }
 
   } else {
-    Serial.println ("Modo Error!");
+    Serial.println ("Mode error!");
   }
-
 
 }
 
