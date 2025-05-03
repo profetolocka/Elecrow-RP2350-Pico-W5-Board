@@ -15,7 +15,8 @@
 // Replace SSID and PASSW with your network name and password
 #define SET_WIFI_SSID_PASSWORD  "AT+WJAP=\"SSID\",\"PASSW\""
 // Define the command to make an HTTP request with the format required by the API
-#define GET_HTTP_REQ  "AT+HTTPCLIENTLINE=1,2,\"application/x-www-form-urlencoded\",\"api.open-meteo.com\",80,\"/v1/forecast?latitude=-31.137&longitude=-64.296&current=temperature_2m\""
+#define GET_HTTP_REQ  "AT+HTTPCLIENTLINE=1,2,\"application/x-www-form-urlencoded\",
+\"api.open-meteo.com\",80,\"/v1/forecast?latitude=-31.137&longitude=-64.296&current=temperature_2m\""
 
 // Sends an AT command with a timeout
 int sendATCommand(String command, int timeout) {
@@ -53,16 +54,13 @@ void setup() {
       Serial2.println (GET_HTTP_REQ);
       // Wait for the response
       while (!Serial2.available());
-      Serial.println(Serial2.readString());
-            
+      Serial.println(Serial2.readString());           
     } else {
       Serial.println ("Connection error!");
     }
-
   } else {
     Serial.println ("Mode error!");
   }
-
 }
 
 void loop() {

@@ -58,7 +58,6 @@ void setup() {
 
   if (!sendATCommand (SET_WIFI_MODE,5)) {   // Set mode
     Serial.println ("Mode OK");
-
     if (!sendATCommand (SET_WIFI_SSID_PASSWORD,10)) {  // Connect
       Serial.println ("WiFi connected");
 
@@ -77,11 +76,9 @@ void setup() {
     } else {
       Serial.println ("Connection error!");
     }
-
   } else {
     Serial.println ("Mode error!");
   }
-
 }
 
 void loop() {
